@@ -1,16 +1,10 @@
 html {
-    color:red;
     margin: 0px;
     padding: 0px;
 }
 
-.button1 {
-    background-color: lightgrey;
-    font-size: 1rem;
-}
-
 .buttonDiv {
     display: flex;
-    justify-content: center;
-    border: 2px solid black;
+    flex-direction: column;
+    align-items: center;
 }

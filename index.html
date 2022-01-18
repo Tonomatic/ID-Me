@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ID.me Integration Exercise</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-3.2.0.min.js"
     ></script>
-
+    <script src="https://s3.amazonaws.com/idme/developer/idme-buttons/assets/js/idme-wallet-button.js" defer></script>
     <script src="idme.js"></script>
   </head>
   <body>
-    <h1>
-      ID.me Integration Exercise
-    </h1>
-    <span
-      id="idme-wallet-button"
-      data-scope="military"
-      data-client-id="28bf5c72de76f94a5fb1d9454e347d4e"
-      data-redirect="http://localhost:3000"
-      data-response="token"
-      data-text="Military receives a discount"
-      data-show-verify="true"
-      data-display="popup"
-    >
-    </span>
-    <script src="https://s3.amazonaws.com/idme/developer/idme-buttons/assets/js/idme-wallet-button.js"></script>
+    <div class="buttonDiv">
+      <h1>
+        Sales Engineer Assessment
+      </h1>
+      <span
+        id="idme-wallet-button"
+        data-scope="military"
+        data-client-id="28bf5c72de76f94a5fb1d9454e347d4e"
+        data-redirect="http://localhost:3000"
+        data-response="token"
+        data-show-verify="true"
+        data-display="link"
+      >
+      </span>
+    </div>
   </body>
 </html>

@@ -25,11 +25,17 @@ $(function () {
           if (payload.status[0].verified) {
             $("#idme-verification").hide();
             $("#idme-verification").before(
-              "<span>Thank you dear " +
+              "<span>Thank you dear <b>" +
               payload.attributes[0].value +
-              " for verifying your " +
+              "</b> for verifying your <b>" +
               payload.status[0].subgroups[0] +
-              " status with ID.me.</span>"
+              "</b> status with ID.me.</span>"
+            );
+            $("#idme-verification").before(
+              "<div>Here's your information " +
+              "<li> " + payload.attributes[1].name + ": <b>" + payload.attributes[1].value + "</b></li>" +
+              "<li> " + payload.attributes[2].name + ": <b>" + payload.attributes[2].value + "</b></li>" +
+              "</div>"
             );
           }
         })
