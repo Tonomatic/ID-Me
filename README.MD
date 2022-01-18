@@ -1,4 +1,9 @@
-Plan:
+Project: Sales Engineer Assessment
 
-- Set up simple webpage composed of HTML/CSS and JS using DOM manipulation
-- Set up the ID.me popup modal 
+Testing project
+
+1. Install node
+2. npm install -g serve
+3. serve -p 3000
+
+Run [http://localhost:3000]

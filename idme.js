@@ -1,30 +1,42 @@
-$(function() {
-  console.log('here')
+$(function () {
   var IDme = {
-    access_token: window.location.hash.split("access_token=")[1].split("&")[0],
+    access_token: window.location.hash
+      .split("&")[0]
+      .match(/[^#access_token=]\w+/)[0],
 
-    params: function() {
-      console.log('here')
+    params: function () {
 
       return {
-        url: `https://api.id.me/api/public/v3/attributes.json?access_token=${this.access_token}`,
+        url:
+        "https://api.id.me/api/public/v3/attributes.json?access_token=" +
+        this.access_token,
         dataType: "jsonp"
-      }
+      };
     },
 
-    request: async function() {
+    request: function () {
+      console.log('here')
       if (this.access_token) {
-        fetch(this.params().url).then(function(response) {
-          return response.json();
-        }).then(function(data) {
-          if (data.status[0].verified) {
+      console.log('here')
+
+        $.get(this.params()).done(function (payload) {
+          console.log("ID.me payload:", payload);
+
+          if (payload.status[0].verified) {
             $("#idme-verification").hide();
-            $("#idme-verification").before(`<span>Thank you ${data.attributes[0].value} for verifying your ${data.status[0].subgroups[0]} status with ID.me.</span>`);
+            $("#idme-verification").before(
+              "<span>Thank you dear " +
+              payload.attributes[0].value +
+              " for verifying your " +
+              payload.status[0].subgroups[0] +
+              " status with ID.me.</span>"
+            );
           }
-          console.log(data);
-        }).catch(function() {
-          console.log("Booo");
-        });
+        })
+        .fail(function() {
+          alert('error called')
+
+        })
       }
     }
   };

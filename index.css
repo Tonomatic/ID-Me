@@ -8,3 +8,9 @@ html {
     background-color: lightgrey;
     font-size: 1rem;
 }
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+}
