@@ -15,13 +15,8 @@ $(function () {
     },
 
     request: function () {
-      console.log('here')
       if (this.access_token) {
-      console.log('here')
-
         $.get(this.params()).done(function (payload) {
-          console.log("ID.me payload:", payload);
-
           if (payload.status[0].verified) {
             $("#idme-verification").hide();
             $("#idme-verification").before(
@@ -32,16 +27,18 @@ $(function () {
               "</b> status with ID.me.</span>"
             );
             $("#idme-verification").before(
-              "<div>Here's your information " +
-              "<li> " + payload.attributes[1].name + ": <b>" + payload.attributes[1].value + "</b></li>" +
-              "<li> " + payload.attributes[2].name + ": <b>" + payload.attributes[2].value + "</b></li>" +
+              "<div class=container>" +
+              "<h3 class=frontText>Here's your information </h3>" +
+              "<div> " + payload.attributes[1].name + ": <b>" + payload.attributes[1].value + "</b></div>" +
+              "<div> " + payload.attributes[2].name + ": <b>" + payload.attributes[2].value + "</b></div>" +
               "</div>"
             );
           }
         })
         .fail(function() {
-          alert('error called')
-
+          $("#idme-verification").before(
+            "<span>Sorry, there was an error, please Verifying again!</span>"
+          );
         })
       }
     }
